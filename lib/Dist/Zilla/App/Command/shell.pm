@@ -29,7 +29,8 @@ sub execute
 	# (at least it does not work as expected)
 	#$DZA->execute_command($DZA->prepare_command(@ARGV));
 	# So, we use a new one for each run
-	Dist::Zilla::App->new->run;
+	local $@;
+	eval { Dist::Zilla::App->new->run }
     }
 }
 
