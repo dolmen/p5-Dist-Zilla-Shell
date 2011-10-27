@@ -1,8 +1,8 @@
 use strict;
 use warnings;
+# ABSTRACT: An interactive shell to run Dist::Zilla commands
 package Dist::Zilla::App::Command::shell;
 
-# ABSTRACT: An interactive shell to run Dist::Zilla commands
 use Dist::Zilla::App -command;
 
 sub abstract { "open a interactive shell to run other DZ commands" }
@@ -11,6 +11,7 @@ sub execute
 {
     my $self = shift;
     require Term::ReadLine;
+    require Text::ParseWords;
 
     my $term = Term::ReadLine->new('Dist::Zilla shell');
     my $prompt = 'DZ> ';
@@ -19,17 +20,15 @@ sub execute
 
     while (1) {
 	my $line = $term->readline($prompt);
-	last if $line =~ /\A\s*(?:exit|x|quit|q)\b/;
 
-	# TODO: use a module implementing POSIX shell parsing
-	local @ARGV = split /\s+/, $line;
+	local @ARGV = Text::ParseWords::shellwords($line);
 	next unless @ARGV;
 	last if $ARGV[0] =~ /\A(?:exit|x|quit|q)\z/;
 
 	# Unfortunately we can not reuse the same Dist::Zilla::App object
 	# (at least it does not work as expected)
 	#$DZA->execute_command($DZA->prepare_command(@ARGV));
-	# So, we use a new one
+	# So, we use a new one for each run
 	Dist::Zilla::App->new->run;
     }
 }
