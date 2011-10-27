@@ -1,17 +1,11 @@
-use 5.008001;
 use strict;
 use warnings;
 package Dist::Zilla::App::Command::shell;
 
-# ABSTRACT: open
+# ABSTRACT: An interactive shell to run Dist::Zilla commands
 use Dist::Zilla::App -command;
 
-sub abstract { "Open a interactive Dist::Zilla shell" }
-
-sub opt_spec
-{
-    [ ]
-}
+sub abstract { "open a interactive shell to run other DZ commands" }
 
 sub execute
 {
@@ -41,3 +35,53 @@ sub execute
 }
 
 1;
+__END__
+
+=head1 NAME
+
+Dist::Zilla::App::Command::shell - An interactive shell for Dist::Zilla
+
+=head1 SYNOPSIS
+
+    $ dzil shell
+    
+    DZ> build
+    ...
+    
+    DZ> test
+    ...
+    
+    DZ> release
+    ...
+    
+    DZ> q
+
+=head1 DESCRIPTION
+
+This module is adds a new command to L<Dist::Zilla>: C<shell>. Run it and an
+interactive shell is opened. You can then run any other Dist::Zilla
+command that you usually run with "dzil I<command>" (even C<shell> itself, to
+open a sub-shell, but that is useless). Type C<q|quit|exit|x> to exit the shell.
+
+Running DZ commands from a shell brings the benefit of avoiding the huge
+startup cost due to Moose and all Dist::Zilla plugins. So the first run of
+a command under the shell may be still slow, but any successive run will be
+much faster.
+
+=head1 SEE ALSO
+
+L<http://dzil.org/>, L<Dist::Zilla>
+
+=head1 AUTHOR
+
+Olivier MenguE<eacute>, L<mailto:dolmen@cpan.org>
+
+=head1 COPYRIGHT & LICENSE
+
+Copyright E<copy> 2011 Olivier MenguE<eacute>.
+
+This is free software; you can redistribute it and/or modify it under
+the same terms as the Perl 5 programming language system itself.
+
+=cut
+
