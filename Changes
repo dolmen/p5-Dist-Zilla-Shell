@@ -1,5 +1,8 @@
 Revision history for Dist-Zilla-App-Command-shell.
 
+{{$NEXT}}
+	Feature: forward unknown commands to the system shell.
+
 0.001    2011-11-27    Olivier Mengué (DOLMEN)
 	First release.
 	My first real use of Dist::Zilla was at the QA Hackathon 2011 in
