@@ -11,14 +11,15 @@ sub execute
 {
     my $self = shift;
 
+    # Get the list of commands
+    my %builtins = map { ($_ => 1) } $self->app->command_names;
+    my $app_class = ref($self->app);
+
     require Term::ReadLine;
     require Text::ParseWords;
 
     my $term = Term::ReadLine->new('Dist::Zilla shell');
     my $prompt = 'DZ> ';
-
-    # Get the list of DZ commands
-    my %builtins = map { ($_ => 1) } $self->app->command_names;
 
     while (1) {
 	my $line = $term->readline($prompt);
@@ -29,7 +30,7 @@ sub execute
 
 	if (exists $builtins{$ARGV[0]}) {
 	    local $@;
-	    eval { Dist::Zilla::App->new->run(@ARGV) };
+	    eval { $app_class->run(@ARGV) };
 	} else {
 	    # Pass the line as-is to the shell
 	    system $line;
