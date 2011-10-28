@@ -5,7 +5,7 @@ package Dist::Zilla::App::Command::shell;
 
 use Dist::Zilla::App -command;
 
-sub abstract { "open a interactive shell to run other DZ commands" }
+sub abstract { "open an interactive shell to run other DZ commands" }
 
 sub execute
 {
