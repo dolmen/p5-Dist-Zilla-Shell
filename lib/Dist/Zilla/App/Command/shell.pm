@@ -62,29 +62,7 @@ Dist::Zilla::App::Command::shell - An interactive shell for Dist::Zilla
 
 =head1 DESCRIPTION
 
-This module is adds a new command to L<Dist::Zilla>: C<shell>. Run it and an
-interactive shell is opened. You can then run any other Dist::Zilla
-command that you usually run with "dzil I<command>" (even C<shell> itself, to
-open a sub-shell, but that is useless). Type C<q|quit|exit|x> to exit the shell.
-
-Any unknown command is executed in a system shell, so you can mix DZ commands
-and system commands (ls, prove, git...).
-
-Running DZ commands from a shell brings the benefit of avoiding the huge
-startup cost due to Moose and all Dist::Zilla plugins. So the first run of
-a command under the shell may be still slow, but any successive run will be
-much faster.
-
-=head1 TRIVIA
-
-I started to seriously learn L<Dist::Zilla> at the QA Hackathon 2011 in
-Amsterdam. I immediately had the idea of this shell as DZ is really
-slow to start. Six months after, this the first DZ extension that I have
-written.
-
-=head1 SEE ALSO
-
-L<http://dzil.org/>, L<Dist::Zilla>
+See L<Dist::Zilla::Shell>.
 
 =head1 AUTHOR
 

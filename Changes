@@ -1,5 +1,9 @@
 Revision history for Dist-Zilla-App-Command-shell.
 
+0.003    2011-11-02    Olivier Mengué (DOLMEN)
+	Rename distribution from Dist-Zilla-App-Command-shell to
+	  Dist-Zilla-Shell.
+
 0.002    2011-10-28    Olivier Mengué (DOLMEN)
 	New feature: forward unknown commands to the system shell.
 
