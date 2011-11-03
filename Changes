@@ -1,5 +1,8 @@
 Revision history for Dist-Zilla-App-Command-shell.
 
+0.004    2011-11-07    Olivier Mengué (DOLMEN)
+	Fix repository metadata after GitHub repo renaming.
+
 0.003    2011-11-02    Olivier Mengué (DOLMEN)
 	Rename distribution from Dist-Zilla-App-Command-shell to
 	  Dist-Zilla-Shell.
