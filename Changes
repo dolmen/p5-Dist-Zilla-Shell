@@ -1,5 +1,9 @@
 Revision history for Dist-Zilla-App-Command-shell.
 
+0.005    2011-11-09    Olivier Mengué (DOLMEN)
+	Fix for the display of exceptions in DZ commands.
+	Add dummy tests just for raising Kwalitee.
+
 0.004    2011-11-07    Olivier Mengué (DOLMEN)
 	Fix repository metadata after GitHub repo renaming.
 

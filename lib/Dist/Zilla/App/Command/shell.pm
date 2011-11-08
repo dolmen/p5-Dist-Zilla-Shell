@@ -31,6 +31,7 @@ sub execute
 	if (exists $builtins{$ARGV[0]}) {
 	    local $@;
 	    eval { $app_class->run(@ARGV) };
+	    print STDERR $@ if $@;
 	} else {
 	    # Pass the line as-is to the shell
 	    system $line;
