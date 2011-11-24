@@ -20,6 +20,7 @@ sub execute
 
     my $term = Term::ReadLine->new('Dist::Zilla shell');
     my $prompt = 'DZ> ';
+    my $count = 0;
 
     while (1) {
 	my $line = $term->readline($prompt);
@@ -28,7 +29,11 @@ sub execute
 	next unless @ARGV;
 	last if $ARGV[0] =~ /\A(?:exit|x|quit|q)\z/;
 
-	if (exists $builtins{$ARGV[0]}) {
+	if ($ARGV[0] eq 'release' && $count) {
+	    warn "AFAIK, DZil is not totally clean in starting each command from a clean state.\nSo for safety reasons, please run \"dzil realease\" outside the DZil Shell.\n";
+	    last;
+	} elsif (exists $builtins{$ARGV[0]}) {
+	    $count++;
 	    local $@;
 	    eval { $app_class->run(@ARGV) };
 	    print STDERR $@ if $@;
