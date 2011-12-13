@@ -1,6 +1,6 @@
 Revision history for Dist-Zilla-App-Command-shell.
 
-{{NEXT}}
+{{$NEXT}}
 	DZil is not clean between commands. To avoid making broken releases
 	  (as I did for Dist-Zilla-Plugin-Version-FromSubversion-1.000002),
 	  the 'release' command is now forbidden in DZil Shell.
