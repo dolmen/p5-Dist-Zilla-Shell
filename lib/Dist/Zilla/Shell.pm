@@ -40,6 +40,9 @@ startup cost due to Moose and all Dist::Zilla plugins. So the first run of
 a command under the shell may be still slow, but any successive run will be
 much faster.
 
+Note that L<Term::ReadLine::Gnu> is a recommended dependency as it will provide
+some command completion.
+
 =head1 TRIVIA
 
 I started to seriously learn L<Dist::Zilla> at the QA Hackathon 2011 in
