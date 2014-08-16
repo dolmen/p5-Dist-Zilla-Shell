@@ -4,6 +4,8 @@ Revision history for Dist-Zilla-App-Command-shell.
 	DZil is not clean between commands. To avoid making broken releases
 	  (as I did for Dist-Zilla-Plugin-Version-FromSubversion-1.000002),
 	  the 'release' command is now forbidden in DZil Shell.
+	Doc: recommend Term::ReadLine::Gnu in POD (already recommended in
+	  META.yml in previous releases). RT#90324.
 
 0.005    2011-11-09    Olivier Mengué (DOLMEN)
 	Fix for the display of exceptions in DZ commands.
