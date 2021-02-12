@@ -22,8 +22,7 @@ sub execute
     my $prompt = 'DZ> ';
     my $count = 0;
 
-    while (1) {
-	my $line = $term->readline($prompt);
+    while (defined (my $line = $term->readline($prompt))) {
 
 	local @ARGV = Text::ParseWords::shellwords($line);
 	next unless @ARGV;
